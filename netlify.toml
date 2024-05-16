@@ -1,4 +1,7 @@
 
+[build]
+  functions = "functions/"
+
 [[redirects]]
   from = "/v1/*"
   to = "https://api.pexels.com:splat"
