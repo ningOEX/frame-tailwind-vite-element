@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/v1/*"
+  to = "https://api.pexels.com:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/videos/*"
+  to = "https://api.pexels.com:splat"
+  status = 200
+  force = true
