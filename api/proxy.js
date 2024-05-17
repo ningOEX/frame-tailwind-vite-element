@@ -3,16 +3,20 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
 module.exports = (req, res) => {
+    console.log("start")
     let target = ''
     // 代理目标地址
     // 这里使用 backend 主要用于区分 vercel serverless 的 api 路径
     // target 替换为你跨域请求的服务器 如： http://gmall-h5-api.atguigu.cn
     if (req.url.startsWith('/v1')) {
         target = 'https://api.pexels.com'
+        console.log(1)
     }
     if (req.url.startsWith('/videos')) {
         target = 'https://api.pexels.com'
+        console.log(2)
     }
+    console.log(req, res)
     // 创建代理对象并转发请求
     createProxyMiddleware({
         target,
