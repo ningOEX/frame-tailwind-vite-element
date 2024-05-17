@@ -1,5 +1,10 @@
 <template>
   <div>
+    <P class="mt-2 px-5 py-2 border mx-5 rounded-sm"
+      >由于站点问题，video页咱无法正常提供video素材，站长正在解决处理...</P
+    >
+  </div>
+  <div class="opacity-0">
     <div
       class="mt-2 h-60 md:h-72 lg:h-80 xl:h-96 w-fill p-4 shadow-inner shadow-stone-50 mb-2"
       id="dPlayer"
@@ -61,7 +66,6 @@
         @change="pageChangeHandle"
       />
     </div>
-    {{ videoLists }}
   </div>
 </template>
 
@@ -78,7 +82,7 @@ export default {
   setup() {
     const videoLists = ref([]);
     const page = ref(1);
-    const limit = ref(30);
+    const limit = ref(10);
     const isTip = ref(true);
     const currentVideo = ref(0);
     const downloadUrl = ref("");
