@@ -3,6 +3,10 @@
     {
       "src": "/v1/(.*)",
       "dest": "https://api.pexels.com/v1/$1"
+    },
+    {
+      "src": "/videos/(.*)",
+      "dest": "https://api.pexels.com/v1/$1"
     }
   ]
 }
