@@ -7,7 +7,7 @@
       暂无可播放视频，可点击下方进行播放观看！
     </div>
 
-    <div class="p-4 pl-2" v-if="downloadUrl.length">
+    <div class="p-4 pl-2" v-if="downloadUrl && downloadUrl.length">
       <a :href="downloadUrl" download class="border p-2 rounded-lg"
         >下载当前视频</a
       >
@@ -51,7 +51,7 @@
     </div>
     <div class="pb-1 border-b border-black"></div>
 
-    <div v-if="videoLists.length" class="flex justify-center">
+    <div v-if="videoLists && videoLists.length" class="flex justify-center">
       <el-pagination
         small
         background
