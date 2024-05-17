@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/v1/(.*)",
-      "destination": "/api/proxy"
+      "destination": "/api/proxy.js"
     },
      {
       "source": "/videos/(.*)",
-      "destination": "/api/proxy"
+      "destination": "/api/proxy.js"
     }
   ]
 }
