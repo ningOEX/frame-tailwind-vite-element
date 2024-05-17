@@ -15,6 +15,7 @@
     <p v-if="isTip" class="w-full text-center p-10 text-orange-400 text-sm">
       世间美景与你环环相扣。
     </p>
+
     <div
       class="flex flex-wrap gap-2 w-fill justify-center pl-2 pr-2 flex-grow bg-neutral-950 pt-4 pb-4"
     >
@@ -47,6 +48,7 @@
         </div>
       </div>
     </div>
+
     <div class="pb-1 border-b border-black"></div>
 
     <div class="flex justify-center">
@@ -59,6 +61,7 @@
         @change="pageChangeHandle"
       />
     </div>
+    {{ videoLists }}
   </div>
 </template>
 
