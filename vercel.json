@@ -1,12 +1,8 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/v1/(.*)",
-      "destination": "/api/proxy.js"
-    },
-     {
-      "source": "/videos/(.*)",
-      "destination": "/api/proxy.js"
+      "src": "/v1/(.*)",
+      "dest": "https://api.pexels.com/v1/$1"
     }
   ]
 }
