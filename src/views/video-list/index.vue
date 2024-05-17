@@ -106,12 +106,12 @@ export default {
         video: {
           quality: [
             {
-              name: "标清",
+              name: "高清",
               url: item.video_files[0].link,
               type: "hls",
             },
             {
-              name: "高清",
+              name: "标清",
               url: item.video_files[2].link,
               type: "normal",
             },
