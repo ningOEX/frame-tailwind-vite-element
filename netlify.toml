@@ -1,15 +1,13 @@
-
-[build]
-  functions = "functions/"
-
 [[redirects]]
-  from = "/v1/*"
-  to = "https://api.pexels.com:splat"
+  from = "/v1"
+  to = "https://api.pexels.com"
   status = 200
   force = true
+  headers = {X-From = "Netlify"}
 
 [[redirects]]
-  from = "/videos/*"
-  to = "https://api.pexels.com:splat"
+  from = "/videos"
+  to = "https://api.pexels.com"
   status = 200
   force = true
+  headers = {X-From = "Netlify"}
