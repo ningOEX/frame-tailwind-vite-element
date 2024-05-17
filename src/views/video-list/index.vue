@@ -7,7 +7,7 @@
       暂无可播放视频，可点击下方进行播放观看！
     </div>
 
-    <div class="p-4 pl-2" v-if="downloadUrl && downloadUrl.length">
+    <div class="p-4 pl-2" :class="downloadUrl ? 'opacity-1' : 'opacity-0'">
       <a :href="downloadUrl" download class="border p-2 rounded-lg"
         >下载当前视频</a
       >
@@ -51,7 +51,7 @@
     </div>
     <div class="pb-1 border-b border-black"></div>
 
-    <div v-if="videoLists && videoLists.length" class="flex justify-center">
+    <div class="flex justify-center">
       <el-pagination
         small
         background
@@ -106,12 +106,12 @@ export default {
         video: {
           quality: [
             {
-              name: "高清",
+              name: "SD",
               url: item.video_files[0].link,
               type: "hls",
             },
             {
-              name: "标清",
+              name: "HD",
               url: item.video_files[2].link,
               type: "normal",
             },
