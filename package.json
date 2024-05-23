@@ -14,6 +14,7 @@
     "axios": "^1.6.8",
     "dplayer": "^1.27.1",
     "element-plus": "^2.7.2",
+    "framer-motion": "^11.2.5",
     "jquery": "^3.7.1",
     "lightbox2": "^2.11.4",
     "nprogress": "^0.2.0",

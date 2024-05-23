@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <P class="mt-2 px-5 py-2 border mx-5 rounded-sm"
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <P class="mt-2 px-5 py-2 border  rounded-sm"
       >由于站点问题，video页咱无法正常提供video素材，站长正在解决处理...</P
     >
   </div>

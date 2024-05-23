@@ -103,7 +103,7 @@
       </div>
     </div>
     <!-- swiper -->
-    <div class="h-16 md:h-20 lg:h-24 xl:h-28 object-cover text-center">
+    <div class="h-16 md:h-20 lg:h-24 xl:h-28 object-cover text-center ">
       <swiper
         :direction="'vertical'"
         :pagination="{

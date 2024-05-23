@@ -1,7 +1,7 @@
 <template>
-  <div class="">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div
-      class="flex justify-center flex-wrap items-center mt-2 md:mt-2 lg:mt-4 gap-2 md:gap-4 ml:gpa-6"
+      class="flex justify-center flex-wrap items-center mt-2 gap-1 "
     >
       <el-empty v-if="!imgLists.length" description="No Data~" />
       <div
@@ -24,11 +24,11 @@
       </div>
     </div>
     <div class="flex items-center gap-4 justify-center">
-      <p class="pt-3 text-xs text-gray-500">total:{{ total }}</p>
+     
       <el-pagination
         small
         background
-        layout="prev, next"
+        layout="prev,pager, next"
         :total="total"
         class="mt-4"
         @change="changeHandle"
