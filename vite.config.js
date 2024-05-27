@@ -5,6 +5,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path';
 
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -15,7 +16,18 @@ export default defineConfig({
     Components({
       resolvers: [ElementPlusResolver()],
     }),
+
   ],
+  build: {
+    rollupOptions: {
+      external: ['howler'],
+      output: {
+        globals: {
+          howler: 'Howler',
+        },
+      },
+    },
+  },
 
   resolve: {
     alias: {
@@ -28,6 +40,14 @@ export default defineConfig({
     proxy: {
       "/v1": {
         target: "https://api.pexels.com",
+        changeOrigin: true,
+      },
+      "/api": {
+        target: "https://api.52vmy.cn",
+        changeOrigin: true,
+      },
+      "/Api": {
+        target: "http://www.wudada.online",
         changeOrigin: true,
       },
       "/videos": {

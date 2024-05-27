@@ -64,9 +64,8 @@ const router = useRouter()
 const navigation = ref([
   { name: "Home", href: "/", current: true },
   { name: "Photo", href: "/img-list", current: false },
-  { name: "Video", href: "/video-list", current: false },
-  { name: "About", href: "/about", current: false },
   { name: "Demo", href: "/demo", current: false },
+  { name: "About", href: "/about", current: false },
 ]);
 
 onMounted(() => {

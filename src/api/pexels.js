@@ -30,3 +30,19 @@ export function videoList(page, limit) {
         headers,
     })
 }
+
+// 随机音乐
+export function randomMusic() {
+    return request({
+        url: "/api/music/wy/rand",
+        method: 'get',
+    })
+}
+
+// 随机壁纸
+export function randomWallpaper() {
+    return request({
+        url: "/Api/ScTp",
+        method: 'get',
+    })
+}

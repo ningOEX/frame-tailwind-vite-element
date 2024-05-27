@@ -1,38 +1,21 @@
 <template>
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div
-      class="flex justify-center flex-wrap items-center mt-2 gap-1 "
-    >
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" @scroll="handleScroll" ref="container">
+    <div class="flex justify-center flex-wrap items-center mt-2 gap-1 ">
       <el-empty v-if="!imgLists.length" description="No Data~" />
-      <div
-        v-else
-        v-for="item in imgLists"
-        :key="item.id"
-        class="shadow-inner shadow-stone-50 rounded-lg"
-      >
+      <div v-else v-for="item in imgLists" :key="item.id" class="shadow-inner shadow-stone-50 rounded-lg">
         <a :href="item.src.original" data-lightbox="gallery" class="relative">
-          <el-image
-            :src="item.src.landscape"
-            lazy
-            fit="cover"
-            class="scale-95 transition w-24 md:w-60 lg:w-70 h-24 md:h-60 lg:h70 rounded-lg object-cover lazy-image hover:scale-90"
-          />
+          <el-image :src="item.src.landscape" lazy fit="cover"
+            class="scale-95 transition w-24 md:w-60 lg:w-70 h-24 md:h-60 lg:h70 rounded-lg object-cover lazy-image hover:scale-90" />
           <span class="absolute right-4 bottom-4 text-orange-300 text-xs">{{
-            item.photographer
-          }}</span>
+    item.photographer
+  }}</span>
         </a>
       </div>
     </div>
+    <el-button type="primary" v-if="isLoading">Loading...</el-button>
     <div class="flex items-center gap-4 justify-center">
-     
-      <el-pagination
-        small
-        background
-        layout="prev,pager, next"
-        :total="total"
-        class="mt-4"
-        @change="changeHandle"
-      />
+
+      <el-pagination small background layout="prev,pager, next" :total="total" class="mt-4" @change="changeHandle" />
     </div>
   </div>
 </template>
@@ -40,7 +23,7 @@
 <script>
 import { ref } from "vue";
 import { Search, Refresh } from "@element-plus/icons-vue";
-import { imgList, imgSearch } from "~/api/pexels";
+import { imgList } from "~/api/pexels";
 import "lightbox2/dist/css/lightbox.css";
 import "lightbox2/dist/js/lightbox.js";
 import NProgress from "nprogress";
@@ -56,6 +39,10 @@ export default {
     const page = ref(1);
     const limit = ref(50);
     const query = ref("");
+
+    const btnTxt = ref("加载更多...");
+    const isLoading = ref(false)
+    const container = ref(null)
 
     // 图片请求
     const init = () => {
@@ -94,6 +81,35 @@ export default {
       });
     };
 
+    // 加载更多
+    async function fetchPosts() {
+      isLoading.value = true
+      try {
+        const res = await imgList(page.value, limit.value);
+        if (res.status !== 200) {
+          console.log(res.statusText);
+          return;
+        }
+        const newImgList = res.data.photos;
+        imgLists.value = [...imgLists.value, ...newImgList]
+        page.value++
+      } catch (error) {
+        console.error('Error fetching posts:', error)
+      } finally {
+        isLoading.value = false
+      }
+    }
+
+    const handleScroll = () => {
+      const scrollHeight = container.value.scrollHeight
+      const scrollTop = container.value.scrollTop
+      const clientHeight = container.value.clientHeight
+
+      if (scrollTop + clientHeight >= scrollHeight && !isLoading.value) {
+        fetchPosts()
+      }
+    }
+
     return {
       imgLists: imgLists,
       changeHandle: changeHandle,
@@ -103,6 +119,10 @@ export default {
       init: init,
       limit: limit,
       Refresh: Refresh,
+      isLoading: isLoading,
+      btnTxt: btnTxt,
+      handleScroll: handleScroll,
+      container: container,
     };
   },
 };
