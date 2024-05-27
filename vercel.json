@@ -8,5 +8,10 @@
       "src": "/videos/(.*)",
       "dest": "https://api.pexels.com/v1/$1"
     }
+    ,
+    {
+      "src": "/Api/(.*)",
+      "dest": "http://www.wudada.online/$1"
+    }
   ]
 }
