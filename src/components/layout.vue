@@ -22,9 +22,11 @@ import footers from "./footers.vue";
 .el-header {
   --el-header-padding: 0;
 }
+
 .el-main {
   --el-main-padding: 0;
 }
+
 .el-footer {
   --el-footer-padding: 0;
 }

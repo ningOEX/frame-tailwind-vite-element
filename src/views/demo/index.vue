@@ -51,7 +51,7 @@
 <script setup>
 import { randomMusic } from "../../api/pexels";
 import { ref, onMounted } from 'vue';
-import { Howl, Howler } from 'howler';
+import { Howl, Howler } from 'howler'
 import { ElMessage } from 'element-plus'
 const classMuster = "w-96 h-96 border  border-slate-600  hover:border-slate-200  rounded-md";
 

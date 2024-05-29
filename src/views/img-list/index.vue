@@ -1,8 +1,12 @@
 <template>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" @scroll="handleScroll" ref="container">
+    <div class="text-3xl py-1 border-l-4 my-3 rounded-md border-r-4 text-right pl-4 ">
+      <p class="imgList-title">tuku</p>
+    </div>
     <div class="flex justify-center flex-wrap items-center mt-2 gap-1 ">
       <el-empty v-if="!imgLists.length" description="No Data~" />
-      <div v-else v-for="item in imgLists" :key="item.id" class="shadow-inner shadow-stone-50 rounded-lg">
+      <div v-else v-for="item in imgLists" :key="item.id" class="shadow-inner shadow-stone-50 rounded-lg"
+        data-aos="flip-right" data-aos-easing="ease-out-cubic" data-aos-duration="1000">
         <a :href="item.src.original" data-lightbox="gallery" class="relative">
           <el-image :src="item.src.landscape" lazy fit="cover"
             class="scale-95 transition w-24 md:w-60 lg:w-70 h-24 md:h-60 lg:h70 rounded-lg object-cover lazy-image hover:scale-90" />
@@ -28,9 +32,14 @@ import "lightbox2/dist/css/lightbox.css";
 import "lightbox2/dist/js/lightbox.js";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { gsap } from "gsap";
 export default {
   mounted() {
     this.init();
+    AOS.init()
+    gsap.to(".imgList-title", { x: -1130, duration: 3 })
   },
 
   setup() {
