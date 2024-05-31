@@ -1,9 +1,9 @@
 <template>
   <el-container>
-    <el-header class="z-40">
+    <el-header class="z-40 fixed w-full">
       <navigate />
     </el-header>
-    <el-main class="z-30">
+    <el-main class="z-30 mt-16">
       <router-view></router-view>
       <el-backtop :right="50" :bottom="100" />
     </el-main>
